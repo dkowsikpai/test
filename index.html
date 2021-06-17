@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"  placeholder="Full Name" id="name"/>
+    <input type="text"  placeholder="Institution name" id="institute"/>
+    <input type="text"  placeholder="Phone Number" id="phone"/>
+    <input type="text"  placeholder="Link to code" id="code"/>
+    <input type="text"  placeholder="Link to website(Optional)" id="website"/>
+    <button onclick="submit_response()">Submit</button>
+    <script>
+        function submit_response(){
+            let data = {
+                name: document.getElementById('name').value,
+                institution: document.getElementById('institute').value,
+                phone: document.getElementById('phone').value,
+                code: document.getElementById('code').value,
+                website: document.getElementById('website').value,
+            };
+            let getData = `Name=${data.name}&Institution=${data.institution}&Phone=${data.phone}&Code=${data.code}&Website=${data.website}`;
+            fetch("https://script.google.com/macros/s/AKfycbw6DkG9WxPl0PY7uq-kQywPz3cHoUhMP1eBq7r-LeqyEZ9DzR_u3_gT0yEckbvmtzl9/exec"+`?${getData}`, 
+            {
+                method: "GET", 
+                mode: 'no-cors',
+                headers: {
+                    // 'Content-Type': 'application/json',
+                }
+            }).then(response=>{
+                    console.log(response);
+            });
+        }
+    </script>
+</body>
+</html>
