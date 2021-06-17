@@ -26,7 +26,8 @@
             fetch("https://script.google.com/macros/s/AKfycbw6DkG9WxPl0PY7uq-kQywPz3cHoUhMP1eBq7r-LeqyEZ9DzR_u3_gT0yEckbvmtzl9/exec"+`?${getData}`, 
             {
                 method: "GET", 
-                mode: 'no-cors',
+                // mode: 'cors',
+                redirect: "follow",
                 headers: {
                     // 'Content-Type': 'application/json',
                 }
